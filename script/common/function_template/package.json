@@ -1,0 +1,10 @@
+{
+  "name": "$NAME",
+  "version": "1.0.0",
+  "description": "AWS Lambdas Bootstrap function",
+  "main": "index.js",
+  "author": "Wolox",
+  "dependencies": {
+    "aws-lambdas-bootstrap": "file:../../lib"
+  }
+}

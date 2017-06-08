@@ -1,0 +1,36 @@
+#!/bin/bash
+
+source "script/common/install.sh"
+
+echo ""
+echo " Bootstrapping AWS Lambdas Bootstrap"
+echo ""
+
+install_apex
+install_nvm
+install_node
+install_npm_packages
+
+script/configure_env 'local'
+script/configure_env dev
+script/configure_env stage
+script/configure_env prod
+
+echo ""
+echo " Project successfully bootstrapped"
+echo ""
+echo " Run 'script/server' to start a local development server."
+echo " Run 'script/deploy FUCTION_NAME [ENV]' to deploy a function."
+echo " RUN 'script/invoke' FUNCTION_NAME [ENV] to invoke a function."
+echo ""
+echo ""
+echo " IMPORTANT!!!"
+echo " ------------"
+echo ""
+echo " Make sure that your AWS credentials are properly configured"
+echo " for Apex to be able to run. Check Apex's documentation"
+echo " for more information: "
+echo ""
+echo "   http://apex.run/#aws-credentials"
+echo ""
+echo ""

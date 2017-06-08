@@ -1,0 +1,7 @@
+#!/bin/bash
+source "$NVM_DIR/nvm.sh"
+# Export local variables to env so they are available to use
+cat config/project-local.json | grep 'LOCAL' | sed 's/\": /=/g' | sed 's/\"//g' | sed 's/,//g' | sed -e 's/^[[:space:]]*/export /' > local_env.sh
+source ./local_env.sh
+rm local_env.sh
+nvm run local/index.js local/config.json

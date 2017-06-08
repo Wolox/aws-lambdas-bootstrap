@@ -1,0 +1,16 @@
+out
+out.zip
+node_modules/
+npm-debug.log
+project.json
+config/project-local.json
+config/project-dev.json
+config/project-stage.json
+config/project-prod.json
+.DS_Store
+.env*
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

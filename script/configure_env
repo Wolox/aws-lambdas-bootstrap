@@ -1,0 +1,3 @@
+#!/bin/bash
+source "$NVM_DIR/nvm.sh"
+nvm run script/common/configure_env.js $1

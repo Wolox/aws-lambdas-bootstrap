@@ -1,0 +1,12 @@
+#!/bin/bash
+ENV=${1-dev}
+
+FILES=functions/*
+FUNCTIONS_DIR='functions'
+
+for dir in $FILES
+do
+  IFS='/' read -ra NAMES <<< "$dir"
+  echo ${NAMES[1]}
+  script/deploy ${NAMES[1]} $ENV
+done

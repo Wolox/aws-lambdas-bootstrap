@@ -1,0 +1,31 @@
+#!/bin/bash
+ENV=${2-dev}
+FUN_NAME=$1-$ENV
+PROJECT_FILE_PATH="./config/project-${ENV}.json"
+PROJECT_JSON_PATH="./project.json"
+
+function add_vpc {
+  vpcFilePath=$1
+  if [ -f $vpcFilePath ]; then
+    source "$NVM_DIR/nvm.sh"
+    nvm run script/add_vpc.js $vpcFilePath $PROJECT_FILE_PATH
+  fi
+}
+
+function clean_up {
+  if [ -f "./backup.json" ]; then
+    mv ./backup.json ${PROJECT_FILE_PATH}
+  fi
+  rm ${PROJECT_JSON_PATH}
+  rm -r ./functions/$FUN_NAME
+}
+
+if [ -d "./functions/$1" ]; then
+  cp -R ./functions/$1 ./functions/$FUN_NAME
+  cp ${PROJECT_FILE_PATH} ${PROJECT_JSON_PATH}
+  add_vpc "./functions/$1/vpc-$ENV.json"
+  apex --profile aws-lambdas-bootstrap-profile deploy $FUN_NAME
+  clean_up
+else
+  echo "Function $1 not found"
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+source "$NVM_DIR/nvm.sh"
+nvm run script/common/create_function.js $1 $2 $3

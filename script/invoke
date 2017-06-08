@@ -1,0 +1,2 @@
+#!/bin/bash
+apex invoke $1 --logs --alias "$1--${2-dev}"

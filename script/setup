@@ -1,0 +1,17 @@
+#!/bin/bash
+
+PROJECT_ROLE="<role-arn>"
+PROJECT_PROFILE="my-project-profile"
+PROJECT="my-project"
+PROJECT_CLASS="MyProject"
+PROJECT_NAME="My Project"
+
+# Customizing project names and role before starting the bootstrap
+find ./ -type f -not -path "./.git/*" -not -name "setup" -exec sed -i -e "s#<aws-lambdas-bootstrap-role>#${PROJECT_ROLE}#g" {} \;
+find ./ -type f -not -path "./.git/*" -not -name "setup" -exec sed -i -e "s/aws-lambdas-bootstrap-profile/${PROJECT_PROFILE}/g" {} \;
+find ./ -type f -not -path "./.git/*" -not -name "setup" -exec sed -i -e "s/aws-lambdas-bootstrap/${PROJECT}/g" {} \;
+find ./ -type f -not -path "./.git/*" -not -name "setup" -exec sed -i -e "s/AWSLambdasBootstrap/${PROJECT_CLASS}/g" {} \;
+find ./ -type f -not -path "./.git/*" -not -name "setup" -exec sed -i -e "s/AWS Lambdas Bootstrap/${PROJECT_NAME}/g" {} \;
+
+# Start the bootstrap itself
+script/bootstrap

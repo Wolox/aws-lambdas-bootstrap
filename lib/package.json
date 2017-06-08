@@ -1,0 +1,31 @@
+{
+  "name": "aws-lambdas-bootstrap",
+  "version": "1.0.0",
+  "description": "AWS Lambdas Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Guido Marucci Blas <guidomb@syrmo.com>",
+  "dependencies": {
+    "async": "^2.0.1",
+    "aws-sdk": "^2.5.3",
+    "bluebird": "^3.4.7",
+    "chai": "^3.5.0",
+    "datadog-metrics": "^0.3.0",
+    "gm": "^1.23.0",
+    "ioredis": "^2.5.0",
+    "jwt-decode": "^2.1.0",
+    "mocha": "^3.2.0",
+    "moment": "^2.17.1",
+    "nock-vcr": "0.0.0",
+    "promise-wtf": "https://github.com/mdesanti/promise-wtf/tarball/master",
+    "request": "^2.75.0",
+    "timemachine": "^0.2.8"
+  },
+  "devDependencies": {
+    "timekeeper": "^1.0.0",
+    "gm": "^1.23.0",
+    "eslint": "^3.14.1"
+  }
+}
